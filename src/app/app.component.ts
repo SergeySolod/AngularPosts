@@ -6,10 +6,12 @@ import {Component} from '@angular/core';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    img = 'https://ru.reactjs.org/logo-og.png'
+    inputValue = ''
+
     constructor() {
-        setTimeout(() => {
-            this.img = 'https://www.searchengines.ru/wp-content/uploads/2019/02/756150_c033_2.jpg'
-        }, 5000)
+    }
+
+    onInput(event?) {
+        console.log('Event', event)
     }
 }
