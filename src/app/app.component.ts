@@ -14,7 +14,12 @@ export class AppComponent {
     onInput(event: KeyboardEvent) {
         this.inputValue = (<HTMLInputElement>event.target).value
     }
-    onClick(){
+
+    onClick() {
         console.log('Click!')
+    }
+
+    onBlur(str: string) {
+        this.inputValue = str
     }
 }
