@@ -11,7 +11,10 @@ export class AppComponent {
     constructor() {
     }
 
-    onInput(event?) {
-        console.log('Event', event)
+    onInput(event: KeyboardEvent) {
+        this.inputValue = (<HTMLInputElement>event.target).value
+    }
+    onClick(){
+        console.log('Click!')
     }
 }
