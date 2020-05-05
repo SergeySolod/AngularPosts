@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import {connect} from "react-redux";
 import {SetCovidDataThunk} from "../redux/reducers/Covid-reducer";
 import CovidCard from "./CovidCard";
+import CovidLogo from '../images/image.png';
 
 const CovidPage = (props) => {
     useEffect(() => {
@@ -9,6 +10,7 @@ const CovidPage = (props) => {
     }, []);
     return (
         <div className='container'>
+            <div className='covid-logo'><img src={CovidLogo} alt="Covid logo"/></div>
             <div className='row'>
                 <div className='col s12 m4'>
                     <CovidCard/>
