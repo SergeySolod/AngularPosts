@@ -13,13 +13,13 @@ const CovidPage = (props) => {
             <div className='covid-logo'><img src={CovidLogo} alt="Covid logo"/></div>
             <div className='row'>
                 <div className='col s12 m4'>
-                    <CovidCard/>
+                    <CovidCard title={'Заразилось'} color='#90caf9 blue lighten-3'/>
                 </div>
                 <div className='col s12 m4'>
-                    <CovidCard/>
+                    <CovidCard title={'Вылечилось'} color='#a5d6a7 green lighten-3'/>
                 </div>
                 <div className='col s12 m4'>
-                    <CovidCard/>
+                    <CovidCard title={'Умерло'} color='#ffab91 deep-orange lighten-3'/>
                 </div>
             </div>
         </div>
