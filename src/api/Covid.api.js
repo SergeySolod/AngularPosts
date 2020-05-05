@@ -4,8 +4,7 @@ export const CovidApi = {
     FullStatistics() {
         return axios({
             url: `https://covid19.mathdro.id/api`,
-            method: 'get',
-            withCredentials: true,
+            method: 'get'
         })
             .then(function (response) {
                 return response.data;
