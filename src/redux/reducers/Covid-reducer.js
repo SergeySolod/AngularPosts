@@ -2,9 +2,11 @@ import {CovidApi} from '../../api/Covid.api'
 import produce from "immer";
 
 const SET_COVID_DATA = 'COVID-19/Covid-reducer/SET_COVID_DATA'
+const SET_LAST_UPDATE = 'COVID-19/Covid-reducer/SET_LAST_UPDATE'
 
 let initialState = {
-    covidData: {}
+    covidData: {},
+    lastUpdate: ''
 }
 
 const CovidReducer = (state = initialState, action) => {
@@ -12,6 +14,11 @@ const CovidReducer = (state = initialState, action) => {
         case SET_COVID_DATA: {
             return produce(state, draft => {
                 draft.covidData = action.covidData
+            })
+        }
+        case SET_LAST_UPDATE: {
+            return produce(state, draft => {
+                draft.lastUpdate = action.lastUpdate
             })
         }
         default:
@@ -22,6 +29,11 @@ const CovidReducer = (state = initialState, action) => {
 const SetCovidData = covidData => ({
     type: SET_COVID_DATA,
     covidData
+})
+
+const SetLastUpdate = lastUpdate => ({
+    type: SET_LAST_UPDATE,
+    lastUpdate
 })
 
 export const SetCovidDataThunk = () => {
@@ -49,6 +61,7 @@ export const SetCovidDataThunk = () => {
         }
 
         dispatch(SetCovidData(covidData.data));
+        dispatch(SetLastUpdate(data.lastUpdate));
     }
 }
 
