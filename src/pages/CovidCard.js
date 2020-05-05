@@ -5,7 +5,7 @@ const CovidCard = (props) => {
             <div className={`card ${props.data.color}`}>
                 <div className="card-content black-text">
                     <span className="card-title">{props.data.title}</span>
-                    <p>{props.data.value}</p>
+                    <p className='card-value'>{props.data.value}</p>
                 </div>
             </div>
     )
