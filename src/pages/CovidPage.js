@@ -7,8 +7,8 @@ const CovidPage = (props) => {
         props.SetCovidDataThunk()
         }, []);
     return (
-        <div>
-            Hello
+        <div className='container'>
+
         </div>
     )
 }

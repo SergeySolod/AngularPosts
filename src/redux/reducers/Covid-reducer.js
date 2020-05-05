@@ -19,10 +19,15 @@ const CovidReducer = (state = initialState, action) => {
     }
 }
 
+const SetCovidData = covidData => ({
+    type: SET_COVID_DATA,
+    covidData
+})
+
 export const SetCovidDataThunk = () => {
     return async (dispatch, getState) => {
         let data = await CovidApi.FullStatistics()
-        console.log(data)
+        dispatch(SetCovidData(data));
     }
 }
 
