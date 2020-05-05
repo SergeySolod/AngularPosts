@@ -27,7 +27,25 @@ const SetCovidData = covidData => ({
 export const SetCovidDataThunk = () => {
     return async (dispatch, getState) => {
         let data = await CovidApi.FullStatistics()
-        dispatch(SetCovidData(data));
+        const covidData = {
+            Infected: {
+                title: 'Заразилось',
+                value: data.confirmed.value,
+                color: '#90caf9 blue lighten-3'
+            },
+            Recovered: {
+                title: 'Вылечилось',
+                value: data.recovered.value,
+                color: '#a5d6a7 green lighten-3'
+            },
+            Deaths: {
+                title: 'Умерло',
+                value: data.deaths.value,
+                color: '#ffab91 deep-orange lighten-3'
+            },
+            lastUpdate: data.lastUpdate
+        }
+        dispatch(SetCovidData(covidData));
     }
 }
 
