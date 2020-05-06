@@ -81,8 +81,8 @@ export const SetCovidDataThunk = () => {
         for (let i = 0; i < dataEveryDay.length; i++) {
             let covidOneDay = {
                 date: dataEveryDay[i].reportDate,
-                confirmed: dataEveryDay[i].confirmed.total,
-                deaths: dataEveryDay[i].deaths.total
+                Заразилось: dataEveryDay[i].confirmed.total,
+                Умерло: dataEveryDay[i].deaths.total
             }
 
                 arrayCovidEveryDay.push(covidOneDay);
