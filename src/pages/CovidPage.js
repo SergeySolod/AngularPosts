@@ -24,7 +24,7 @@ const CovidPage = (props) => {
             <div className='covid-logo'><img src={CovidLogo} alt="Covid logo"/></div>
             <div className='row'>
                 {props.CovidData.map(data => <div className='col s12 m4'><CovidCard data={data}/></div>)}
-                <Dropdown Countries={props.Countries}/>
+                <Dropdown CovidData={props.CovidData} Countries={props.Countries}/>
                 <CovidChart data={props.CovidEveryDayData}/>
             </div>
         </div>
