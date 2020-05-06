@@ -26,7 +26,7 @@ const CovidPage = (props) => {
                         </div>
                     )
                 }
-                <CovidChart />
+                <CovidChart data={props.CovidEveryDayData} />
             </div>
         </div>
     )

@@ -58,9 +58,9 @@ const data = [
 ];
 class CovidChart extends Component {
     render() {
+        console.log(this.props.data)
         return (
             <div>
-
                 <h2 style={{ textAlign: "left" }}>Line Chart</h2>
                 <LineChart
                     width={730}

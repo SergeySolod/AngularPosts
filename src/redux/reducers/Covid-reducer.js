@@ -19,7 +19,6 @@ const CovidReducer = (state = initialState, action) => {
             })
         }
         case SET_COVID_EVERY_DAY_DATA: {
-            console.log(action.covidEveryDayData)
             return produce(state, draft => {
                 draft.covidEveryDayData = action.covidEveryDayData
             })
@@ -88,8 +87,6 @@ export const SetCovidDataThunk = () => {
 
                 arrayCovidEveryDay.push(covidOneDay);
         }
-
-        console.log(arrayCovidEveryDay)
         dispatch(SetCovidEveryDayData(arrayCovidEveryDay));
     }
 }
