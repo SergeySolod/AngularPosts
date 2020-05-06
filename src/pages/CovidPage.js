@@ -4,6 +4,7 @@ import {SetCovidDataThunk} from "../redux/reducers/Covid-reducer";
 import CovidCard from "./CovidCard";
 import CovidLogo from '../images/image.png';
 import {getCovidData} from "../redux/selectors/Covide-selector";
+import CovidChart from "./CovidChart";
 
 const CovidPage = (props) => {
     useEffect(() => {
@@ -25,9 +26,7 @@ const CovidPage = (props) => {
                         </div>
                     )
                 }
-
-
-
+                <CovidChart />
             </div>
         </div>
     )
