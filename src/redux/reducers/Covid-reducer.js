@@ -3,10 +3,12 @@ import produce from "immer";
 
 const SET_COVID_DATA = 'COVID-19/Covid-reducer/SET_COVID_DATA'
 const SET_LAST_UPDATE = 'COVID-19/Covid-reducer/SET_LAST_UPDATE'
+const SET_COVID_EVERY_DAY_DATA = 'COVID-19/Covid-reducer/SET_COVID_EVERY_DAY_DATA'
 
 let initialState = {
-    covidData: {},
-    lastUpdate: ''
+    covidData: [],
+    lastUpdate: '',
+    covidEveryDayData: []
 }
 
 const CovidReducer = (state = initialState, action) => {
@@ -14,6 +16,12 @@ const CovidReducer = (state = initialState, action) => {
         case SET_COVID_DATA: {
             return produce(state, draft => {
                 draft.covidData = action.covidData
+            })
+        }
+        case SET_COVID_EVERY_DAY_DATA: {
+            console.log(action.covidEveryDayData)
+            return produce(state, draft => {
+                draft.covidEveryDayData = action.covidEveryDayData
             })
         }
         case SET_LAST_UPDATE: {
@@ -30,6 +38,12 @@ const SetCovidData = covidData => ({
     type: SET_COVID_DATA,
     covidData
 })
+
+const SetCovidEveryDayData = covidEveryDayData => ({
+    type: SET_COVID_EVERY_DAY_DATA,
+    covidEveryDayData
+})
+
 
 const SetLastUpdate = lastUpdate => ({
     type: SET_LAST_UPDATE,
@@ -62,6 +76,21 @@ export const SetCovidDataThunk = () => {
 
         dispatch(SetCovidData(covidData.data));
         dispatch(SetLastUpdate(data.lastUpdate));
+
+        let dataEveryDay = await CovidApi.EveryDayStatistics()
+        let arrayCovidEveryDay = [];
+        for (let i = 0; i < dataEveryDay.length; i++) {
+            let covidOneDay = {
+                date: dataEveryDay[i].reportDate,
+                confirmed: dataEveryDay[i].confirmed.total,
+                deaths: dataEveryDay[i].deaths.total
+            }
+
+                arrayCovidEveryDay.push(covidOneDay);
+        }
+
+        console.log(arrayCovidEveryDay)
+        dispatch(SetCovidEveryDayData(arrayCovidEveryDay));
     }
 }
 

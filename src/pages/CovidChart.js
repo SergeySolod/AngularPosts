@@ -11,6 +11,7 @@ import {
     Area,
     Bar
 } from "recharts";
+
 const data = [
     {
         name: "Page A",
@@ -27,7 +28,7 @@ const data = [
     {
         name: "Page C",
         uv: 2000,
-        pv: 9800,
+        pv: 19800,
         amt: 2290
     },
     {
@@ -58,10 +59,8 @@ const data = [
 class CovidChart extends Component {
     render() {
         return (
-            <div className="App">
-                <header>
-                    <h1>Re Charts</h1>
-                </header>
+            <div>
+
                 <h2 style={{ textAlign: "left" }}>Line Chart</h2>
                 <LineChart
                     width={730}
@@ -76,6 +75,7 @@ class CovidChart extends Component {
                     <Legend />
                     <Line type="monotone" dataKey="pv" stroke="#8884d8" />
                     <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+                    <Line type="monotone" dataKey="amt" stroke="#82ca9d" />
                 </LineChart>
             </div>
         );

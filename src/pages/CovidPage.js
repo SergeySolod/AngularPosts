@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {SetCovidDataThunk} from "../redux/reducers/Covid-reducer";
 import CovidCard from "./CovidCard";
 import CovidLogo from '../images/image.png';
-import {getCovidData} from "../redux/selectors/Covide-selector";
+import {getCovidData, getCovidEveryDayData} from "../redux/selectors/Covide-selector";
 import CovidChart from "./CovidChart";
 
 const CovidPage = (props) => {
@@ -34,7 +34,8 @@ const CovidPage = (props) => {
 
 const mapStateToProps = state => {
     return {
-        CovidData: getCovidData(state)
+        CovidData: getCovidData(state),
+        CovidEveryDayData: getCovidEveryDayData(state)
     };
 };
 
