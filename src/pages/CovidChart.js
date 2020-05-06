@@ -15,7 +15,7 @@ import {
 const CovidChart = (props) => {
     return (
         <div>
-            <h2 style={{ textAlign: "left" }}>.</h2>
+            <h2 className='schedule'>.</h2>
             <LineChart
                 width={850}
                 height={500}
