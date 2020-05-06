@@ -25,6 +25,11 @@ const CovidReducer = (state = initialState, action) => {
                 draft.covidEveryDayData = action.covidEveryDayData
             })
         }
+        case SET_COUNTRIES: {
+            return produce(state, draft => {
+                draft.countries = action.countries
+            })
+        }
         case SET_LAST_UPDATE: {
             return produce(state, draft => {
                 draft.lastUpdate = action.lastUpdate
@@ -43,6 +48,11 @@ const SetCovidData = covidData => ({
 const SetCovidEveryDayData = covidEveryDayData => ({
     type: SET_COVID_EVERY_DAY_DATA,
     covidEveryDayData
+})
+
+const SetCountries = countries => ({
+    type: SET_COUNTRIES,
+    countries
 })
 
 
@@ -100,6 +110,7 @@ export const SetCovidDataThunk = () => {
             }
             arrayCountries.push(counrty);
         }
+        dispatch(SetCountries(arrayCountries));
 
     }
 }
