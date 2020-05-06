@@ -24,5 +24,17 @@ export const CovidApi = {
             .catch(function (error) {
                 return error
             })
+    },
+    Countries() {
+        return axios({
+            url: `https://covid19.mathdro.id/api/countries`,
+            method: 'get'
+        })
+            .then(function (response) {
+                return response.data;
+            })
+            .catch(function (error) {
+                return error
+            })
     }
 }

@@ -5,10 +5,15 @@ import CovidCard from "./CovidCard";
 import CovidLogo from '../images/image.png';
 import {getCovidData, getCovidEveryDayData} from "../redux/selectors/Covide-selector";
 import CovidChart from "./CovidChart";
+import M from 'materialize-css';
+import SuperCoolComponent from "./Foo";
 
 const CovidPage = (props) => {
     useEffect(() => {
         props.SetCovidDataThunk()
+
+        let elems = document.querySelectorAll('.dropdown-trigger');
+        M.Dropdown.init(elems, {inDuration: 300, outDuration: 225});
     }, []);
 
     if (props.CovidData.length === undefined) {
@@ -26,6 +31,12 @@ const CovidPage = (props) => {
                         </div>
                     )
                 }
+
+
+
+                   <SuperCoolComponent />
+
+
                 <CovidChart data={props.CovidEveryDayData} />
             </div>
         </div>

@@ -4,11 +4,13 @@ import produce from "immer";
 const SET_COVID_DATA = 'COVID-19/Covid-reducer/SET_COVID_DATA'
 const SET_LAST_UPDATE = 'COVID-19/Covid-reducer/SET_LAST_UPDATE'
 const SET_COVID_EVERY_DAY_DATA = 'COVID-19/Covid-reducer/SET_COVID_EVERY_DAY_DATA'
+const SET_COUNTRIES = 'COVID-19/Covid-reducer/SET_COUNTRIES'
 
 let initialState = {
     covidData: [],
     lastUpdate: '',
-    covidEveryDayData: []
+    covidEveryDayData: [],
+    countries: []
 }
 
 const CovidReducer = (state = initialState, action) => {
@@ -88,6 +90,17 @@ export const SetCovidDataThunk = () => {
                 arrayCovidEveryDay.push(covidOneDay);
         }
         dispatch(SetCovidEveryDayData(arrayCovidEveryDay));
+
+        let dataCountries = await CovidApi.Countries()
+
+        let arrayCountries = [];
+        for (let i = 0; i < dataCountries.countries.length; i++) {
+            let counrty = {
+                name: dataCountries.countries[i].name
+            }
+            arrayCountries.push(counrty);
+        }
+
     }
 }
 
