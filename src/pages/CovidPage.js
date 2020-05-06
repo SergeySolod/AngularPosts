@@ -3,10 +3,10 @@ import {connect} from "react-redux";
 import {SetCovidDataThunk} from "../redux/reducers/Covid-reducer";
 import CovidCard from "./CovidCard";
 import CovidLogo from '../images/image.png';
-import {getCovidData, getCovidEveryDayData} from "../redux/selectors/Covide-selector";
+import {getCountries, getCovidData, getCovidEveryDayData} from "../redux/selectors/Covide-selector";
 import CovidChart from "./CovidChart";
 import M from 'materialize-css';
-import SuperCoolComponent from "./Foo";
+import SuperCoolComponent from "./Dropdown";
 
 const CovidPage = (props) => {
     useEffect(() => {
@@ -19,7 +19,7 @@ const CovidPage = (props) => {
     if (props.CovidData.length === undefined) {
         return <div>Загрузка...</div>
     }
-
+    console.log(props.Countries)
     return (
         <div className='container'>
             <div className='covid-logo'><img src={CovidLogo} alt="Covid logo"/></div>
@@ -27,17 +27,16 @@ const CovidPage = (props) => {
                 {
                     props.CovidData.map(data =>
                         <div className='col s12 m4'>
-                            <CovidCard data={data} />
+                            <CovidCard data={data}/>
                         </div>
                     )
                 }
 
 
+                <SuperCoolComponent/>
 
-                   <SuperCoolComponent />
 
-
-                <CovidChart data={props.CovidEveryDayData} />
+                <CovidChart data={props.CovidEveryDayData}/>
             </div>
         </div>
     )
@@ -46,7 +45,8 @@ const CovidPage = (props) => {
 const mapStateToProps = state => {
     return {
         CovidData: getCovidData(state),
-        CovidEveryDayData: getCovidEveryDayData(state)
+        CovidEveryDayData: getCovidEveryDayData(state),
+        Countries: getCountries(state)
     };
 };
 

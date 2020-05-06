@@ -1,17 +1,11 @@
-import React, {Component} from 'react';
-
-// Import Materialize
+import React, {useEffect} from 'react';
 import M from "materialize-css";
 
-
-class SuperCoolComponent extends Component {
-
-    componentDidMount() {
-        // Auto initialize all the things!
+const Dropdown = () => {
+    useEffect(() => {
         M.AutoInit();
-    }
+    }, []);
 
-    render() {
         return(
             <div>
                 <div className="input-field col s12">
@@ -25,7 +19,6 @@ class SuperCoolComponent extends Component {
                 </div>
             </div>
         )
-    }
 }
 
-export default SuperCoolComponent;
+export default Dropdown;
