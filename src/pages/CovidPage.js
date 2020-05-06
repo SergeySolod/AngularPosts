@@ -6,7 +6,7 @@ import CovidLogo from '../images/image.png';
 import {getCountries, getCovidData, getCovidEveryDayData} from "../redux/selectors/Covide-selector";
 import CovidChart from "./CovidChart";
 import M from 'materialize-css';
-import SuperCoolComponent from "./Dropdown";
+import Dropdown from "./Dropdown";
 
 const CovidPage = (props) => {
     useEffect(() => {
@@ -19,23 +19,12 @@ const CovidPage = (props) => {
     if (props.CovidData.length === undefined) {
         return <div>Загрузка...</div>
     }
-    console.log(props.Countries)
     return (
         <div className='container'>
             <div className='covid-logo'><img src={CovidLogo} alt="Covid logo"/></div>
             <div className='row'>
-                {
-                    props.CovidData.map(data =>
-                        <div className='col s12 m4'>
-                            <CovidCard data={data}/>
-                        </div>
-                    )
-                }
-
-
-                <SuperCoolComponent/>
-
-
+                {props.CovidData.map(data => <div className='col s12 m4'><CovidCard data={data}/></div>)}
+                <Dropdown Countries={props.Countries}/>
                 <CovidChart data={props.CovidEveryDayData}/>
             </div>
         </div>
