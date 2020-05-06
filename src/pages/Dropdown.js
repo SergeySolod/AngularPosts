@@ -5,14 +5,6 @@ import Grid from '@material-ui/core/Grid';
 
 const Dropdown = (props) => {
     return (
-        <Grid
-            container
-            spacing={0}
-            direction="column"
-            alignItems="center"
-            justify="center"
-        >
-            <Grid item xs={3}>
                 <Autocomplete
                     id="combo-box-demo"
                     options={props.Countries}
@@ -20,8 +12,6 @@ const Dropdown = (props) => {
                     style={{width: 300}}
                     renderInput={(params) => <TextField {...params} label="Combo box" variant="outlined"/>}
                 />
-            </Grid>
-        </Grid>
     );
 }
 
