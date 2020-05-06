@@ -11,9 +11,6 @@ import Dropdown from "./Dropdown";
 const CovidPage = (props) => {
     useEffect(() => {
         props.SetCovidDataThunk()
-
-        let elems = document.querySelectorAll('.dropdown-trigger');
-        M.Dropdown.init(elems, {inDuration: 300, outDuration: 225});
     }, []);
 
     if (props.CovidData.length === undefined) {

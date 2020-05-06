@@ -104,10 +104,9 @@ export const SetCovidDataThunk = () => {
         let dataCountries = await CovidApi.Countries()
 
         let arrayCountries = [];
-        for (let i = 0; i < 1; i++) {
+        for (let i = 0; i < dataCountries.countries.length; i++) {
             let counrty = {
-            code:dataCountries.countries[i].iso2,
-            label: dataCountries.countries[i].name
+            country: dataCountries.countries[i].name
             }
             arrayCountries.push(counrty);
         }
