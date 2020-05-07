@@ -123,4 +123,12 @@ export const SetCovidDataThunk = () => {
     }
 }
 
+export const SetHandleCountryChange = (country) => {
+    return async (dispatch, getState) => {
+
+       console.log(country)
+
+    }
+}
+
 export default CovidReducer

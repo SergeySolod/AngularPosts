@@ -3,7 +3,7 @@ import styles from './CovidPage.module.css';
 import CovidCard from "../Components/CovidCard/CovidCard";
 import {Grid, CircularProgress} from '@material-ui/core'
 import {connect} from 'react-redux'
-import {SetCovidDataThunk} from "../redux/reducers/Covid-reducer";
+import {SetCovidDataThunk, SetHandleCountryChange} from "../redux/reducers/Covid-reducer";
 import {
     getCountries,
     getCovidData,
@@ -33,7 +33,7 @@ const CovidPage = (props) => {
                 <Grid container spacing={3} justify='center'>
                     {props.CovidData.map(data => <CovidCard data={data} LastUpdate={props.LastUpdate}/>)}
                 </Grid>
-                <CovidDropdown Countries={props.Countries}/>
+                <CovidDropdown SetHandleCountryChange={props.SetHandleCountryChange} Countries={props.Countries}/>
                 <CovidChart CovidEveryDay={props.CovidEveryDay}/>
             </div>
         </div>
@@ -50,4 +50,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, {SetCovidDataThunk})(CovidPage)
+export default connect(mapStateToProps, {SetCovidDataThunk, SetHandleCountryChange})(CovidPage)
