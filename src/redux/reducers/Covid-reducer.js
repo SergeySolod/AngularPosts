@@ -5,8 +5,10 @@ const SET_COVID_DATA = 'COVID-19/Covid-reducer/SET_COVID_DATA'
 const SET_LAST_UPDATE = 'COVID-19/Covid-reducer/SET_LAST_UPDATE'
 const SET_COVID_EVERY_DAY_DATA = 'COVID-19/Covid-reducer/SET_COVID_EVERY_DAY_DATA'
 const SET_COUNTRIES = 'COVID-19/Covid-reducer/SET_COUNTRIES'
+const SET_LOADING = 'COVID-19/Covid-reducer/SET_LOADING'
 
 let initialState = {
+    loading: false,
     covidData: [],
     lastUpdate: '',
     covidEveryDayData: [],
@@ -15,6 +17,11 @@ let initialState = {
 
 const CovidReducer = (state = initialState, action) => {
     switch (action.type) {
+        case SET_LOADING: {
+            return produce(state, draft => {
+                draft.loading = action.loading
+            })
+        }
         case SET_COVID_DATA: {
             return produce(state, draft => {
                 draft.covidData = action.covidData
@@ -40,6 +47,11 @@ const CovidReducer = (state = initialState, action) => {
     }
 }
 
+const SetLoading = loading => ({
+    type: SET_LOADING,
+    loading
+})
+
 const SetCovidData = covidData => ({
     type: SET_COVID_DATA,
     covidData
@@ -63,6 +75,7 @@ const SetLastUpdate = lastUpdate => ({
 
 export const SetCovidDataThunk = () => {
     return async (dispatch, getState) => {
+        dispatch(SetLoading(true));
         let data = await CovidApi.FullStatistics()
         const covidData = {
             data: [
@@ -102,13 +115,11 @@ export const SetCovidDataThunk = () => {
 
         let arrayCountries = [];
         for (let i = 0; i < dataCountries.countries.length; i++) {
-            let counrty = {
-            country: dataCountries.countries[i].name
-            }
-            arrayCountries.push(counrty);
+
+            arrayCountries.push(dataCountries.countries[i].name);
         }
         dispatch(SetCountries(arrayCountries));
-
+        dispatch(SetLoading(false));
     }
 }
 

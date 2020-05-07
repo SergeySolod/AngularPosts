@@ -1,3 +1,7 @@
+export const getLoading = state => {
+    return state.covid.loading;
+};
+
 export const getCovidData = state => {
     return state.covid.covidData;
 };
