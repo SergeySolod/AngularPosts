@@ -8,12 +8,26 @@ const CovidChart = (props) => {
         <Line
             data={{
                 labels: '',
-                datasets: [{}, {}]
+                datasets: [{
+                    data: props.CovidEveryDay.confirmed,
+                    label: 'Confirmed',
+                    borderColor: '#3333ff',
+                    fill: true
+                },
+                    {
+                        data: props.CovidEveryDay.deaths,
+                        label: 'Deaths',
+                        borderColor: 'red',
+                        backgroundColor: 'rgba(255, 0, 0, 0.5)',
+                        fill: true
+                    }
+                ]
             }}
         />
     )
     return (
-        <div>
+        <div className={styles.container}>
+            {lineChart}
 
         </div>
     );
