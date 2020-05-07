@@ -19,6 +19,7 @@ const CovidPage = (props) => {
                 <Grid container spacing={3} justify='center'>
                     {props.CovidData.map(data => <CovidCard data={data} LastUpdate={props.LastUpdate}/>)}
                 </Grid>
+                <h1>CountryPicker</h1>
                 <CovidChart CovidEveryDay={props.CovidEveryDay}/>
             </div>
         </div>
