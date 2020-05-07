@@ -25,7 +25,8 @@ const CovidChart = (props) => {
             }}
         />
     )
-    return (
+
+   return (
         <div className={styles.container}>
             {lineChart}
 

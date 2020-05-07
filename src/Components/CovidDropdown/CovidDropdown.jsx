@@ -7,7 +7,6 @@ const CovidDropdown = (props) => {
     return (
         <FormControl className={styles.formControl}>
             <NativeSelect defaultValue='' onChange={(e) => props.SetHandleCountryChange(e.target.value)}>
-                <options value="global">Global</options>
                 {props.Countries.map((country, i) => <option key={i} value={country}>{country}</option> )}
             </NativeSelect>
         </FormControl>
