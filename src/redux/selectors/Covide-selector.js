@@ -2,6 +2,10 @@ export const getCovidData = state => {
     return state.covid.covidData;
 };
 
+export const getLastUpdate = state => {
+    return state.covid.lastUpdate;
+};
+
 export const getCovidEveryDayData = state => {
     return state.covid.covidEveryDayData;
 };

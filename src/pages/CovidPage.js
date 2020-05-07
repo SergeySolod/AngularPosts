@@ -4,7 +4,7 @@ import CovidCard from "../Components/CovidCard/CovidCard";
 import {Grid} from '@material-ui/core'
 import {connect} from 'react-redux'
 import {SetCovidDataThunk} from "../redux/reducers/Covid-reducer";
-import {getCovidData} from "../redux/selectors/Covide-selector";
+import {getCovidData, getLastUpdate} from "../redux/selectors/Covide-selector";
 
 const CovidPage = (props) => {
     useEffect(() => {
@@ -15,7 +15,7 @@ const CovidPage = (props) => {
         <div className={styles.container}>
             <div className={styles.container_card}>
                 <Grid container spacing={3} justify='center'>
-                    {props.CovidData.map(data => <CovidCard data={data}/>)}
+                    {props.CovidData.map(data => <CovidCard data={data} LastUpdate={props.LastUpdate}/>)}
                 </Grid>
             </div>
         </div>
@@ -24,7 +24,8 @@ const CovidPage = (props) => {
 
 const mapStateToProps = state => {
     return {
-        CovidData: getCovidData(state)
+        CovidData: getCovidData(state),
+        LastUpdate: getLastUpdate(state)
     };
 };
 

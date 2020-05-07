@@ -19,7 +19,7 @@ const CovidCard = (props) => {
                     />
                 </Typography>
                 <Typography color="textSecondary">
-                    REAL DATE
+                    {new Date(props.LastUpdate).toDateString()}
                 </Typography>
                 <Typography variant="body2">
                     Number of active cases of COVID-19
