@@ -6,11 +6,12 @@ import {connect} from 'react-redux'
 import {SetCovidDataThunk} from "../redux/reducers/Covid-reducer";
 import {getCovidData, getCovidEveryDayData, getLastUpdate} from "../redux/selectors/Covide-selector";
 import CovidChart from "../Components/CovidChart/CovidChart";
+import CovidDropdown from "../Components/CovidDropdown/CovidDropdown";
 
 
 const CovidPage = (props) => {
     useEffect(() => {
-      props.SetCovidDataThunk()
+        props.SetCovidDataThunk()
     }, []);
 
     return (
@@ -19,7 +20,7 @@ const CovidPage = (props) => {
                 <Grid container spacing={3} justify='center'>
                     {props.CovidData.map(data => <CovidCard data={data} LastUpdate={props.LastUpdate}/>)}
                 </Grid>
-                <h1>CountryPicker</h1>
+                <CovidDropdown/>
                 <CovidChart CovidEveryDay={props.CovidEveryDay}/>
             </div>
         </div>
