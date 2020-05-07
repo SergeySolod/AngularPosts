@@ -1,10 +1,11 @@
 import React from 'react'
 import styles from './CovidPage.module.css';
+import CovidCard from "../Components/CovidCard/CovidCard";
 
 const CovidPage = () => {
     return (
      <div className={styles.container}>
-         Hello, world!
+       <CovidCard/>
      </div>
     )
 }
