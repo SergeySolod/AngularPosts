@@ -5,6 +5,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import styles from './CovidCard.module.css';
 
 const useStyles = makeStyles({
     root: {
@@ -28,6 +29,7 @@ export default function CovidCard(props) {
     const bull = <span className={classes.bullet}>•</span>;
 
     return (
+        <div className={styles.container}>
         <Card className={classes.root}>
             <CardContent>
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -49,5 +51,6 @@ export default function CovidCard(props) {
                 <Button size="small">Learn More</Button>
             </CardActions>
         </Card>
+        </div>
     );
 }

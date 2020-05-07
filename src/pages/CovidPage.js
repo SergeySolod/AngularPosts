@@ -7,6 +7,7 @@ import {getCountries, getCovidData, getCovidEveryDayData} from "../redux/selecto
 import CovidChart from "../Components/CovidChart/CovidChart";
 import CovidDropdown from "../Components/CovidDropdown/CovidDropdown";
 import Grid from '@material-ui/core/Grid';
+import styles from '../Components/CovidCard/CovidCard.module.css';
 
 const CovidPage = (props) => {
     useEffect(() => {
@@ -17,22 +18,14 @@ const CovidPage = (props) => {
         return <div>Загрузка...</div>
     }
     return (
-        <Grid container spacing={2}>
-            <Grid item xs={12}>
-                <Grid
-                    container
-                    spacing={0}
-                    direction="column"
-                    alignItems="center"
-                    justify="center"
-                >
+        <Grid container spacing={2} justify="center">
+            <Grid item xs={12} md={3} className={styles.card}>
                     <div className='covid-logo'><img src={CovidLogo} alt="Covid logo"/></div>
                     <div>
                         {props.CovidData.map(data => <div className='col s12 m4'><CovidCard data={data}/></div>)}
                         {/*<Dropdown Countries={props.Countries}/>*/}
                         {/*<CovidChart data={props.CovidEveryDayData}/>*/}
                     </div>
-                </Grid>
             </Grid>
         </Grid>
     )
