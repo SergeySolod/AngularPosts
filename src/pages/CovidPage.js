@@ -3,7 +3,7 @@ import styles from './CovidPage.module.css';
 
 const CovidPage = () => {
     return (
-     <div>
+     <div className={styles.container}>
          Hello, world!
      </div>
     )
