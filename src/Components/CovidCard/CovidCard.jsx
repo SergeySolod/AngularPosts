@@ -1,6 +1,6 @@
 import React from 'react'
 import {Card, CardContent, Typography, Grid} from '@material-ui/core'
-
+import CountUp from 'react-countup'
 import styles from './CovidCard.module.css'
 
 const CovidCard = (props) => {
@@ -8,10 +8,15 @@ const CovidCard = (props) => {
         <Grid item component={Card}>
             <CardContent>
                 <Typography color="textSecondary" gutterBottom>
-                    Infected
+                    {props.data.title}
                 </Typography>
                 <Typography variant="h5">
-                    REAL DATE
+                    <CountUp
+                        staty={0}
+                        end={props.data.value}
+                        deration={2.5}
+                        separator=','
+                    />
                 </Typography>
                 <Typography color="textSecondary">
                     REAL DATE

@@ -10,6 +10,7 @@ const CovidPage = (props) => {
     useEffect(() => {
       props.SetCovidDataThunk()
     }, []);
+
     return (
         <div className={styles.container}>
             <div className={styles.container_card}>
