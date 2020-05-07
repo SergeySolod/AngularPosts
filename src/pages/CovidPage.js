@@ -1,13 +1,18 @@
 import React, {useEffect} from 'react'
 import styles from './CovidPage.module.css';
 import CovidCard from "../Components/CovidCard/CovidCard";
-import {Grid} from '@material-ui/core'
+import {Grid, CircularProgress} from '@material-ui/core'
 import {connect} from 'react-redux'
 import {SetCovidDataThunk} from "../redux/reducers/Covid-reducer";
-import {getCountries, getCovidData, getCovidEveryDayData, getLastUpdate, getLoading} from "../redux/selectors/Covide-selector";
+import {
+    getCountries,
+    getCovidData,
+    getCovidEveryDayData,
+    getLastUpdate,
+    getLoading
+} from "../redux/selectors/Covide-selector";
 import CovidChart from "../Components/CovidChart/CovidChart";
 import CovidDropdown from "../Components/CovidDropdown/CovidDropdown";
-
 
 const CovidPage = (props) => {
     useEffect(() => {
@@ -15,7 +20,11 @@ const CovidPage = (props) => {
     }, []);
 
     if (props.Loading) {
-        return <div>Загрузка...</div>
+        return (
+            <div className={styles.preloader}>
+                <CircularProgress/>
+            </div>
+        )
     }
 
     return (

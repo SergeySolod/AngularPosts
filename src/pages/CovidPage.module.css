@@ -15,3 +15,9 @@ body {
     align-items: center;
     margin: 50px 0;
 }
+
+.preloader {
+    display: flex;
+    justify-content: center;
+    margin-top: 10rem;
+}
