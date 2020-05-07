@@ -125,8 +125,8 @@ export const SetCovidDataThunk = () => {
 
 export const SetHandleCountryChange = (country) => {
     return async (dispatch, getState) => {
-
-       console.log(country)
+        let data = await CovidApi.Country(country)
+       console.log(data)
 
     }
 }
