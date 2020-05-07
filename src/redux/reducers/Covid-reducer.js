@@ -80,16 +80,16 @@ export const SetCovidDataThunk = () => {
         const covidData = {
             data: [
                 {
-                    title: 'Заразилось',
+                    title: 'Confirmed',
                     value: data.confirmed.value
 
                 },
                 {
-                    title: 'Вылечилось',
+                    title: 'Recovered',
                     value: data.recovered.value
                 },
                 {
-                    title: 'Умерло',
+                    title: 'Deaths',
                     value: data.deaths.value,
                 }
             ]
@@ -126,7 +126,26 @@ export const SetCovidDataThunk = () => {
 export const SetHandleCountryChange = (country) => {
     return async (dispatch, getState) => {
         let data = await CovidApi.Country(country)
-       console.log(data)
+        const covidData = {
+            data: [
+                {
+                    title: 'Confirmed',
+                    value: data.confirmed.value
+
+                },
+                {
+                    title: 'Recovered',
+                    value: data.recovered.value
+                },
+                {
+                    title: 'Deaths',
+                    value: data.deaths.value,
+                }
+            ]
+        }
+
+        dispatch(SetCovidData(covidData.data));
+        dispatch(SetLastUpdate(data.lastUpdate));
 
     }
 }
