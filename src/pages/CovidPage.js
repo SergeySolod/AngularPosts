@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './CovidPage.module.css';
 import CovidCard from "../Components/CovidCard/CovidCard";
 import {Grid} from '@material-ui/core'
+import {connect} from 'react-redux'
 
 const CovidPage = () => {
     return (
@@ -15,8 +16,13 @@ const CovidPage = () => {
     )
 }
 
+const mapStateToProps = state => {
+    return {
 
-export default (CovidPage)
+    };
+};
+
+export default connect(mapStateToProps, {})(CovidPage)
 
 {/*<Grid container spacing={2} justify="center">*/
 }
