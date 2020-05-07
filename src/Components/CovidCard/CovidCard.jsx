@@ -24,4 +24,4 @@ const CovidCard = (props) => {
     )
 }
 
-export default connect(CovidCard)
+export default (CovidCard)
