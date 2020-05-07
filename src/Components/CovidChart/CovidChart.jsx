@@ -7,15 +7,15 @@ const CovidChart = (props) => {
     const lineChart = (
         <Line
             data={{
-                labels: '',
+                labels: props.CovidEveryDay.map(({date}) => date),
                 datasets: [{
-                    data: props.CovidEveryDay.confirmed,
+                    data: props.CovidEveryDay.map(({confirmed}) => confirmed),
                     label: 'Confirmed',
                     borderColor: '#3333ff',
                     fill: true
                 },
                     {
-                        data: props.CovidEveryDay.deaths,
+                        data: props.CovidEveryDay.map(({deaths}) => deaths),
                         label: 'Deaths',
                         borderColor: 'red',
                         backgroundColor: 'rgba(255, 0, 0, 0.5)',
