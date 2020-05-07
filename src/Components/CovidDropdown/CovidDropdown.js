@@ -3,7 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import Grid from '@material-ui/core/Grid';
 
-const Dropdown = (props) => {
+const CovidDropdown = (props) => {
     return (
                 <Autocomplete
                     id="combo-box-demo"
@@ -15,4 +15,4 @@ const Dropdown = (props) => {
     );
 }
 
-export default Dropdown
+export default CovidDropdown
