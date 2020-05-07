@@ -1,35 +1,20 @@
 import React from "react";
-import {
-    LineChart,
-    CartesianGrid,
-    XAxis,
-    YAxis,
-    Tooltip,
-    Legend,
-    Line,
-    ComposedChart,
-    Area,
-    Bar
-} from "recharts";
+import {Line, Bar} from 'react-chartjs-2'
+
+import styles from './CovidChart.module.css'
 
 const CovidChart = (props) => {
+    const lineChart = (
+        <Line
+            data={{
+                labels: '',
+                datasets: [{}, {}]
+            }}
+        />
+    )
     return (
         <div>
-            <h2 className='schedule'>.</h2>
-            <LineChart
-                width={850}
-                height={500}
-                data={props.data}
-                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-            >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="date" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="Заразилось" stroke="#90caf9" />
-                <Line type="monotone" dataKey="Умерло" stroke="#f4a990" />
-            </LineChart>
+
         </div>
     );
 }

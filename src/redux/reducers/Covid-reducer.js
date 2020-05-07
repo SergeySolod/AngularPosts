@@ -68,19 +68,16 @@ export const SetCovidDataThunk = () => {
             data: [
                 {
                     title: 'Заразилось',
-                    value: data.confirmed.value,
-                    color: '#90caf9 blue lighten-3'
+                    value: data.confirmed.value
 
                 },
                 {
                     title: 'Вылечилось',
-                    value: data.recovered.value,
-                    color: '#a5d6a7 green lighten-3'
+                    value: data.recovered.value
                 },
                 {
                     title: 'Умерло',
                     value: data.deaths.value,
-                    color: '#ffab91 deep-orange lighten-3'
                 }
             ]
         }
