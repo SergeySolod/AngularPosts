@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 import {SetCovidDataThunk} from "../redux/reducers/Covid-reducer";
 import {getCovidData, getLastUpdate} from "../redux/selectors/Covide-selector";
 
+
 const CovidPage = (props) => {
     useEffect(() => {
       props.SetCovidDataThunk()
